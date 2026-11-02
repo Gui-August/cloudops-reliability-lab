@@ -1,0 +1,19 @@
+﻿spec:
+  template:
+    spec:
+      containers:
+        - name: grafana
+          volumeMounts:
+            - name: dashboard-provider
+              mountPath: /etc/grafana/provisioning/dashboards
+              readOnly: true
+            - name: cloudops-dashboard
+              mountPath: /etc/grafana/provisioning/cloudops-dashboards
+              readOnly: true
+      volumes:
+        - name: dashboard-provider
+          configMap:
+            name: grafana-dashboard-provider
+        - name: cloudops-dashboard
+          configMap:
+            name: grafana-cloudops-dashboard

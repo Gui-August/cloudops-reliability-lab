@@ -1,0 +1,397 @@
+{
+    "editable":  true,
+    "schemaVersion":  39,
+    "graphTooltip":  1,
+    "annotations":  {
+                        "list":  [
+                                     {
+                                         "hide":  true,
+                                         "iconColor":  "rgba(0, 211, 255, 1)",
+                                         "builtIn":  1,
+                                         "datasource":  {
+                                                            "type":  "grafana",
+                                                            "uid":  "-- Grafana --"
+                                                        },
+                                         "type":  "dashboard",
+                                         "name":  "Annotations \u0026 Alerts",
+                                         "enable":  true
+                                     }
+                                 ]
+                    },
+    "version":  1,
+    "panels":  [
+                   {
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "thresholds"
+                                                                      },
+                                                            "thresholds":  {
+                                                                               "steps":  [
+                                                                                             {
+                                                                                                 "value":  null,
+                                                                                                 "color":  "red"
+                                                                                             },
+                                                                                             {
+                                                                                                 "value":  1,
+                                                                                                 "color":  "yellow"
+                                                                                             },
+                                                                                             {
+                                                                                                 "value":  2,
+                                                                                                 "color":  "green"
+                                                                                             }
+                                                                                         ],
+                                                                               "mode":  "absolute"
+                                                                           },
+                                                            "unit":  "short"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "id":  1,
+                       "gridPos":  {
+                                       "y":  0,
+                                       "w":  6,
+                                       "h":  5,
+                                       "x":  0
+                                   },
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "title":  "Pods disponiveis",
+                       "targets":  [
+                                       {
+                                           "datasource":  {
+                                                              "type":  "prometheus",
+                                                              "uid":  "prometheus"
+                                                          },
+                                           "legendFormat":  "",
+                                           "expr":  "sum(up{job=\"corporate-transactions-api\"})",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "type":  "stat",
+                       "options":  {
+
+                                   }
+                   },
+                   {
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "palette-classic"
+                                                                      },
+                                                            "thresholds":  {
+                                                                               "steps":  [
+                                                                                             {
+                                                                                                 "value":  null,
+                                                                                                 "color":  "green"
+                                                                                             }
+                                                                                         ],
+                                                                               "mode":  "absolute"
+                                                                           },
+                                                            "unit":  "short"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "id":  2,
+                       "gridPos":  {
+                                       "y":  0,
+                                       "w":  6,
+                                       "h":  5,
+                                       "x":  6
+                                   },
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "title":  "Transacoes aprovadas",
+                       "targets":  [
+                                       {
+                                           "datasource":  {
+                                                              "type":  "prometheus",
+                                                              "uid":  "prometheus"
+                                                          },
+                                           "legendFormat":  "",
+                                           "expr":  "sum(corporate_transactions_total{status=\"approved\"})",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "type":  "stat",
+                       "options":  {
+
+                                   }
+                   },
+                   {
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "palette-classic"
+                                                                      },
+                                                            "thresholds":  {
+                                                                               "steps":  [
+                                                                                             {
+                                                                                                 "value":  null,
+                                                                                                 "color":  "green"
+                                                                                             }
+                                                                                         ],
+                                                                               "mode":  "absolute"
+                                                                           },
+                                                            "unit":  "short"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "id":  3,
+                       "gridPos":  {
+                                       "y":  0,
+                                       "w":  6,
+                                       "h":  5,
+                                       "x":  12
+                                   },
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "title":  "Erros simulados",
+                       "targets":  [
+                                       {
+                                           "datasource":  {
+                                                              "type":  "prometheus",
+                                                              "uid":  "prometheus"
+                                                          },
+                                           "legendFormat":  "",
+                                           "expr":  "sum(corporate_transactions_total{status=\"error\"})",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "type":  "stat",
+                       "options":  {
+
+                                   }
+                   },
+                   {
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "thresholds"
+                                                                      },
+                                                            "thresholds":  {
+                                                                               "steps":  [
+                                                                                             {
+                                                                                                 "value":  null,
+                                                                                                 "color":  "green"
+                                                                                             },
+                                                                                             {
+                                                                                                 "value":  5,
+                                                                                                 "color":  "yellow"
+                                                                                             },
+                                                                                             {
+                                                                                                 "value":  10,
+                                                                                                 "color":  "red"
+                                                                                             }
+                                                                                         ],
+                                                                               "mode":  "absolute"
+                                                                           },
+                                                            "unit":  "percent"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "id":  4,
+                       "gridPos":  {
+                                       "y":  0,
+                                       "w":  6,
+                                       "h":  5,
+                                       "x":  18
+                                   },
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "title":  "Taxa de erros (5 min)",
+                       "targets":  [
+                                       {
+                                           "datasource":  {
+                                                              "type":  "prometheus",
+                                                              "uid":  "prometheus"
+                                                          },
+                                           "legendFormat":  "",
+                                           "expr":  "100 * sum(rate(corporate_transactions_total{status=\"error\"}[5m])) / clamp_min(sum(rate(corporate_transactions_total[5m])), 0.000001)",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "type":  "stat",
+                       "options":  {
+
+                                   }
+                   },
+                   {
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "palette-classic"
+                                                                      },
+                                                            "thresholds":  {
+                                                                               "steps":  [
+                                                                                             {
+                                                                                                 "value":  null,
+                                                                                                 "color":  "green"
+                                                                                             }
+                                                                                         ],
+                                                                               "mode":  "absolute"
+                                                                           },
+                                                            "unit":  "ops"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "id":  5,
+                       "gridPos":  {
+                                       "y":  5,
+                                       "w":  12,
+                                       "h":  9,
+                                       "x":  0
+                                   },
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "title":  "Taxa de transacoes por status",
+                       "targets":  [
+                                       {
+                                           "datasource":  {
+                                                              "type":  "prometheus",
+                                                              "uid":  "prometheus"
+                                                          },
+                                           "legendFormat":  "{{status}}",
+                                           "expr":  "sum by (status) (rate(corporate_transactions_total[5m]))",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "type":  "timeseries",
+                       "options":  {
+
+                                   }
+                   },
+                   {
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "palette-classic"
+                                                                      },
+                                                            "thresholds":  {
+                                                                               "steps":  [
+                                                                                             {
+                                                                                                 "value":  null,
+                                                                                                 "color":  "green"
+                                                                                             }
+                                                                                         ],
+                                                                               "mode":  "absolute"
+                                                                           },
+                                                            "unit":  "s"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "id":  6,
+                       "gridPos":  {
+                                       "y":  5,
+                                       "w":  12,
+                                       "h":  9,
+                                       "x":  12
+                                   },
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "title":  "Latencia P95 das operacoes instrumentadas",
+                       "targets":  [
+                                       {
+                                           "datasource":  {
+                                                              "type":  "prometheus",
+                                                              "uid":  "prometheus"
+                                                          },
+                                           "legendFormat":  "",
+                                           "expr":  "histogram_quantile(0.95, sum by (le) (rate(corporate_transaction_duration_seconds_bucket[5m])))",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "type":  "timeseries",
+                       "options":  {
+
+                                   }
+                   },
+                   {
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "palette-classic"
+                                                                      },
+                                                            "thresholds":  {
+                                                                               "steps":  [
+                                                                                             {
+                                                                                                 "value":  null,
+                                                                                                 "color":  "green"
+                                                                                             }
+                                                                                         ],
+                                                                               "mode":  "absolute"
+                                                                           },
+                                                            "unit":  "short"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "id":  7,
+                       "gridPos":  {
+                                       "y":  14,
+                                       "w":  24,
+                                       "h":  8,
+                                       "x":  0
+                                   },
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "title":  "Saude individual dos pods",
+                       "targets":  [
+                                       {
+                                           "datasource":  {
+                                                              "type":  "prometheus",
+                                                              "uid":  "prometheus"
+                                                          },
+                                           "legendFormat":  "{{pod}}",
+                                           "expr":  "up{job=\"corporate-transactions-api\"}",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "type":  "timeseries",
+                       "options":  {
+
+                                   }
+                   }
+               ],
+    "tags":  [
+                 "cloudops",
+                 "sre",
+                 "kubernetes",
+                 "observability"
+             ],
+    "time":  {
+                 "to":  "now",
+                 "from":  "now-1h"
+             },
+    "timezone":  "browser",
+    "refresh":  "15s",
+    "title":  "CloudOps | Corporate Transactions - SRE Overview",
+    "uid":  "cloudops-sre-overview"
+}

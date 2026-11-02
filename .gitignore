@@ -1,0 +1,42 @@
+﻿# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Variáveis e credenciais
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+kubeconfig
+kubeconfig.*
+
+# IDE e sistema operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+
+# Backups locais
+docs/backups/
+
+# Arquivos de dados locais
+*.db
+*.sqlite
+*.sqlite3
+
+# Diagnósticos sensíveis
+docs/diagnostics/*kubeconfig*
+
+# Diagnósticos locais do cluster
+docs/diagnostics/

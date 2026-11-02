@@ -1,0 +1,37 @@
+﻿apiVersion: v1
+kind: Pod
+metadata:
+  name: grafana-storage-helper
+  namespace: observability
+spec:
+  restartPolicy: Never
+  containers:
+    - name: helper
+      image: busybox:1.36
+      command: ["sh", "-c", "sleep 3600"]
+      volumeMounts:
+        - name: storage
+          mountPath: /data
+  volumes:
+    - name: storage
+      persistentVolumeClaim:
+        claimName: grafana-storage
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: prometheus-storage-helper
+  namespace: observability
+spec:
+  restartPolicy: Never
+  containers:
+    - name: helper
+      image: busybox:1.36
+      command: ["sh", "-c", "sleep 3600"]
+      volumeMounts:
+        - name: storage
+          mountPath: /data
+  volumes:
+    - name: storage
+      persistentVolumeClaim:
+        claimName: prometheus-storage
