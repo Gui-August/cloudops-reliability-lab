@@ -40,3 +40,5 @@ docs/diagnostics/*kubeconfig*
 
 # Diagnósticos locais do cluster
 docs/diagnostics/
+
+*.yaml.bak
